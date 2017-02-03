@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
 
   <data>
 
     <variable
       name="viewModel"
-      type="io.github.lamtran.moviebooking.MainViewModel" />
+      type="io.github.lamtran.moviebooking.ui.MainViewModel" />
   </data>
 
   <LinearLayout
@@ -15,6 +16,8 @@
     <android.support.v7.widget.RecyclerView
       android:id="@+id/list"
       android:layout_width="match_parent"
-      android:layout_height="match_parent" />
+      android:layout_height="match_parent"
+      app:factory="@{viewModel.factory}"
+      app:seats="@{viewModel.seats}" />
   </LinearLayout>
 </layout>

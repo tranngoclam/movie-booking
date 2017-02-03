@@ -1,4 +1,4 @@
-package io.github.lamtran.moviebooking;
+package io.github.lamtran.moviebooking.ui;
 
 import dagger.Subcomponent;
 import io.github.lamtran.moviebooking.di.ActivityScope;
@@ -10,4 +10,5 @@ import io.github.lamtran.moviebooking.di.ActivityScope;
 @Subcomponent(modules = MainModule.class)
 public interface MainComponent {
 
+  MainViewModel mainViewModel();
 }

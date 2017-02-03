@@ -5,8 +5,15 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
+import io.github.lamtran.moviebooking.model.state.AvailableState;
+import io.github.lamtran.moviebooking.model.state.EmptyState;
+import io.github.lamtran.moviebooking.model.state.ReservedState;
+import io.github.lamtran.moviebooking.model.state.SelectedState;
+import io.github.lamtran.moviebooking.model.state.State;
 import io.github.lamtran.moviebooking.ui.viewholder.SeatViewHolder;
+import io.github.lamtran.moviebooking.ui.viewholder.SeatViewHolderFactory;
 
 /**
  * Created by lam on 2/3/17.
@@ -14,10 +21,13 @@ import io.github.lamtran.moviebooking.ui.viewholder.SeatViewHolder;
 
 public class SeatAdapter extends RecyclerView.Adapter<SeatViewHolder> {
 
+  private final Map<Integer, SeatViewHolderFactory> mSeatViewHolderFactoryMap;
+
   private List<Seat> mSeats;
 
-  public SeatAdapter() {
+  public SeatAdapter(Map<Integer, SeatViewHolderFactory> seatViewHolderFactoryMap) {
     mSeats = new ArrayList<>();
+    mSeatViewHolderFactoryMap = seatViewHolderFactoryMap;
   }
 
   @Override
@@ -26,20 +36,34 @@ public class SeatAdapter extends RecyclerView.Adapter<SeatViewHolder> {
   }
 
   @Override
-  public void onBindViewHolder(SeatViewHolder holder, int position) {
+  public int getItemViewType(int position) {
+    Seat seat = mSeats.get(position);
+    State state = seat.getState();
+    if (state instanceof EmptyState) {
+      return Seat.TYPE_EMPTY;
+    } else if (state instanceof ReservedState) {
+      return Seat.TYPE_RESERVED;
+    } else if (state instanceof AvailableState) {
+      return Seat.TYPE_AVAILABLE;
+    } else if (state instanceof SelectedState) {
+      return Seat.TYPE_SELECTED;
+    } else {
+      return Seat.TYPE_UNKNOWN;
+    }
+  }
 
+  @Override
+  public void onBindViewHolder(SeatViewHolder holder, int position) {
+    holder.bind(mSeats.get(position));
   }
 
   @Override
   public SeatViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-    return null;
+    return mSeatViewHolderFactoryMap.get(viewType).createViewHolder(parent);
   }
 
-  @Override
-  public int getItemViewType(int position) {
-    Seat seat = mSeats.get(position);
-
-
-    return super.getItemViewType(position);
+  public void setSeats(List<Seat> seats) {
+    mSeats = seats;
+    notifyDataSetChanged();
   }
 }
