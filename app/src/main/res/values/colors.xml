@@ -26,4 +26,10 @@
   <color name="colorPrimary">#3F51B5</color>
   <color name="colorPrimaryDark">#303F9F</color>
   <color name="colorAccent">#FF4081</color>
+
+  <color name="colorStateEmpty">@android:color/transparent</color>
+  <color name="colorStateReserved">@android:color/black</color>
+  <color name="colorStateAvailable">@android:color/darker_gray</color>
+  <color name="colorStateSelected">@android:color/holo_green_dark</color>
+  <color name="colorStateUnknown">@android:color/transparent</color>
 </resources>

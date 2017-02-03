@@ -39,6 +39,7 @@
   <com.facebook.drawee.view.SimpleDraweeView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@android:color/black"
+    android:onClick="@{() -> action.onClick(data)}"
+    app:state="@{data.state}"
     app:viewAspectRatio="1.0" />
 </layout>

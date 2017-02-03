@@ -24,45 +24,76 @@
 
 package io.github.lamtran.moviebooking;
 
+import android.databinding.BaseObservable;
+import android.databinding.Bindable;
+
+import io.github.lamtran.moviebooking.model.state.AvailableState;
+import io.github.lamtran.moviebooking.model.state.EmptyState;
+import io.github.lamtran.moviebooking.model.state.ReservedState;
+import io.github.lamtran.moviebooking.model.state.SelectedState;
 import io.github.lamtran.moviebooking.model.state.State;
+import io.github.lamtran.moviebooking.model.state.UnknownState;
+
+import static io.github.lamtran.moviebooking.Seat.Type.AVAILABLE;
+import static io.github.lamtran.moviebooking.Seat.Type.EMPTY;
+import static io.github.lamtran.moviebooking.Seat.Type.RESERVED;
+import static io.github.lamtran.moviebooking.Seat.Type.SELECTED;
 
 /**
  * Created by lam on 2/3/17.
  */
 
-public class Seat {
-
-  public static final int TYPE_AVAILABLE = 2;
-
-  public static final int TYPE_EMPTY = 0;
-
-  public static final int TYPE_RESERVED = 1;
-
-  public static final int TYPE_SELECTED = 3;
-
-  public static final int TYPE_UNKNOWN = -1;
+public class Seat extends BaseObservable {
 
   private final int mCol;
 
   private final int mRow;
 
-  private final State mState;
+  @Bindable
+  private State mState;
 
-  public Seat(int col, int row, State state) {
+  public Seat(int col, int row, int type) {
     mCol = col;
     mRow = row;
-    mState = state;
+    switch (type) {
+      case EMPTY:
+        mState = new EmptyState();
+        break;
+      case RESERVED:
+        mState = new ReservedState();
+        break;
+      case AVAILABLE:
+        mState = new AvailableState();
+        break;
+      case SELECTED:
+        mState = new SelectedState();
+        break;
+      default:
+        mState = new UnknownState();
+        break;
+    }
   }
 
-  public int getCol() {
-    return mCol;
-  }
-
-  public int getRow() {
-    return mRow;
+  public void changeState() {
+    if (mState instanceof AvailableState) {
+      mState = new SelectedState();
+      notifyPropertyChanged(BR.state);
+    } else if (mState instanceof SelectedState) {
+      mState = new AvailableState();
+      notifyPropertyChanged(BR.state);
+    }
   }
 
   public State getState() {
     return mState;
+  }
+
+  public interface Type {
+
+    int AVAILABLE = 2;
+    int EMPTY = 0;
+    int RESERVED = 1;
+    int SELECTED = 3;
+    int UNKNOWN = -1;
   }
 }

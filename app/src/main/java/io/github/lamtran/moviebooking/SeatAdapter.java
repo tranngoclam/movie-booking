@@ -67,21 +67,22 @@ public class SeatAdapter extends RecyclerView.Adapter<SeatViewHolder> {
     Seat seat = mSeats.get(position);
     State state = seat.getState();
     if (state instanceof EmptyState) {
-      return Seat.TYPE_EMPTY;
+      return Seat.Type.EMPTY;
     } else if (state instanceof ReservedState) {
-      return Seat.TYPE_RESERVED;
+      return Seat.Type.RESERVED;
     } else if (state instanceof AvailableState) {
-      return Seat.TYPE_AVAILABLE;
+      return Seat.Type.AVAILABLE;
     } else if (state instanceof SelectedState) {
-      return Seat.TYPE_SELECTED;
+      return Seat.Type.SELECTED;
     } else {
-      return Seat.TYPE_UNKNOWN;
+      return Seat.Type.UNKNOWN;
     }
   }
 
   @Override
   public void onBindViewHolder(SeatViewHolder holder, int position) {
-    holder.bind(mSeats.get(position));
+    holder.binding.setData(mSeats.get(position));
+    holder.binding.setAction(Seat::changeState);
   }
 
   @Override

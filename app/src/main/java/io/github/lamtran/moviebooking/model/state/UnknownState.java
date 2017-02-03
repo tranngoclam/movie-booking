@@ -22,26 +22,12 @@
  * SOFTWARE.
  */
 
-package io.github.lamtran.moviebooking.ui.viewholder;
-
-import android.databinding.ViewDataBinding;
-import android.support.v7.widget.RecyclerView;
-
-import io.github.lamtran.moviebooking.Seat;
-import io.github.lamtran.moviebooking.databinding.ItemSeatBinding;
+package io.github.lamtran.moviebooking.model.state;
 
 /**
  * Created by lam on 2/3/17.
  */
 
-public abstract class SeatViewHolder extends RecyclerView.ViewHolder {
+public class UnknownState implements State {
 
-  public abstract void bind(Seat seat);
-
-  public final ItemSeatBinding binding;
-
-  public SeatViewHolder(ViewDataBinding binding) {
-    super(binding.getRoot());
-    this.binding = (ItemSeatBinding) binding;
-  }
 }

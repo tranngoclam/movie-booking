@@ -47,14 +47,14 @@ public class MainModule {
 
   @Provides
   @IntoMap
-  @IntKey(Seat.TYPE_AVAILABLE)
+  @IntKey(Seat.Type.AVAILABLE)
   SeatViewHolderFactory provideAvailableSeatViewHolder() {
     return new AvailableSeatViewHolderFactory();
   }
 
   @Provides
   @IntoMap
-  @IntKey(Seat.TYPE_EMPTY)
+  @IntKey(Seat.Type.EMPTY)
   SeatViewHolderFactory provideEmptySeatViewHolder() {
     return new EmptySeatViewHolderFactory();
   }
@@ -67,7 +67,7 @@ public class MainModule {
 
   @Provides
   @IntoMap
-  @IntKey(Seat.TYPE_RESERVED)
+  @IntKey(Seat.Type.RESERVED)
   SeatViewHolderFactory provideReservedSeatViewHolder() {
     return new ReservedSeatViewHolderFactory();
   }
@@ -80,7 +80,7 @@ public class MainModule {
 
   @Provides
   @IntoMap
-  @IntKey(Seat.TYPE_SELECTED)
+  @IntKey(Seat.Type.SELECTED)
   SeatViewHolderFactory provideSelectedSeatViewHolder() {
     return new SelectedSeatViewHolderFactory();
   }
