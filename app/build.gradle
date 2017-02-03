@@ -31,6 +31,7 @@ android {
 
 def android_support = "25.1.1"
 def dagger = "2.8"
+def auto_factory = "1.0-beta3"
 def rxjava = "2.0.5"
 def rxandroid = "2.0.1"
 def rxlifecycle = "2.0.1"
@@ -40,6 +41,7 @@ def espresso = "2.2.2"
 def mockito = "2.7.0"
 def junit = "4.12"
 def jsr305 = "3.0.1"
+def javawriter = "2.5.1"
 
 dependencies {
   compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -50,6 +52,8 @@ dependencies {
   compile "com.google.dagger:dagger:$dagger"
   annotationProcessor "com.google.dagger:dagger-compiler:$dagger"
   apt "com.google.dagger:dagger-compiler:$dagger"
+
+  compile "com.google.auto.factory:auto-factory:$auto_factory"
 
   compile "io.reactivex.rxjava2:rxjava:$rxjava"
   compile "io.reactivex.rxjava2:rxandroid:$rxandroid"
@@ -65,6 +69,7 @@ dependencies {
     exclude group: 'com.google.code.findbugs'
   })
   androidTestCompile "com.google.code.findbugs:jsr305:$jsr305"
+  androidTestCompile "com.squareup:javawriter:$javawriter"
   testCompile "org.mockito:mockito-core:$mockito"
   testCompile "junit:junit:$junit"
 }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+  <data>
+
+    <variable
+      name="data"
+      type="io.github.lamtran.moviebooking.Seat" />
+
+    <variable
+      name="action"
+      type="io.github.lamtran.moviebooking.SeatActionCallback" />
+  </data>
+
+  <View
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:onClick="@{() -> action.onClick(data)}"
+    bind:state="@{data.getState()}" />
+</layout>
