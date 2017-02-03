@@ -1,12 +1,15 @@
 package io.github.lamtran.moviebooking;
 
+import android.databinding.DataBindingUtil;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import io.github.lamtran.moviebooking.databinding.ItemSeatBinding;
 import io.github.lamtran.moviebooking.model.state.AvailableState;
 import io.github.lamtran.moviebooking.model.state.EmptyState;
 import io.github.lamtran.moviebooking.model.state.ReservedState;
@@ -59,11 +62,13 @@ public class SeatAdapter extends RecyclerView.Adapter<SeatViewHolder> {
 
   @Override
   public SeatViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-    return mSeatViewHolderFactoryMap.get(viewType).createViewHolder(parent);
+    ItemSeatBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.item_seat, parent, false);
+    return mSeatViewHolderFactoryMap.get(viewType).createViewHolder(binding);
   }
 
   public void setSeats(List<Seat> seats) {
-    mSeats = seats;
+    mSeats.clear();
+    mSeats.addAll(seats);
     notifyDataSetChanged();
   }
 }

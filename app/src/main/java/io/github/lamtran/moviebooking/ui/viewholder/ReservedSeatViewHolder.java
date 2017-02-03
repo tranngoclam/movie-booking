@@ -2,7 +2,7 @@ package io.github.lamtran.moviebooking.ui.viewholder;
 
 import com.google.auto.factory.AutoFactory;
 
-import android.view.View;
+import android.databinding.ViewDataBinding;
 
 import io.github.lamtran.moviebooking.Seat;
 
@@ -12,8 +12,8 @@ import io.github.lamtran.moviebooking.Seat;
 @AutoFactory(implementing = SeatViewHolderFactory.class)
 public class ReservedSeatViewHolder extends SeatViewHolder {
 
-  public ReservedSeatViewHolder(View itemView) {
-    super(itemView);
+  public ReservedSeatViewHolder(ViewDataBinding binding) {
+    super(binding);
   }
 
   @Override

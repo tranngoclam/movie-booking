@@ -17,7 +17,7 @@
       android:id="@+id/list"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      app:factory="@{viewModel.factory}"
-      app:seats="@{viewModel.seats}" />
+      app:seats="@{viewModel.seats}"
+      app:adapter="@{viewModel.adapter}" />
   </LinearLayout>
 </layout>

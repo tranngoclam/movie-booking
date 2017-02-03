@@ -30,6 +30,7 @@ android {
 }
 
 def android_support = "25.1.1"
+def fresco = "1.0.1"
 def dagger = "2.8"
 def auto_factory = "1.0-beta3"
 def rxjava = "2.0.5"
@@ -48,6 +49,8 @@ dependencies {
 
   compile "com.android.support:appcompat-v7:$android_support"
   compile "com.android.support:recyclerview-v7:$android_support"
+
+  compile "com.facebook.fresco:fresco:$fresco"
 
   compile "com.google.dagger:dagger:$dagger"
   annotationProcessor "com.google.dagger:dagger-compiler:$dagger"

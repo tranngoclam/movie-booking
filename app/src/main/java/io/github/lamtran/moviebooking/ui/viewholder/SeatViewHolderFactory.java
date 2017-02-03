@@ -1,6 +1,6 @@
 package io.github.lamtran.moviebooking.ui.viewholder;
 
-import android.view.ViewGroup;
+import android.databinding.ViewDataBinding;
 
 /**
  * Created by lam on 2/3/17.
@@ -8,5 +8,5 @@ import android.view.ViewGroup;
 
 public interface SeatViewHolderFactory {
 
-  SeatViewHolder createViewHolder(ViewGroup parent);
+  SeatViewHolder createViewHolder(ViewDataBinding binding);
 }

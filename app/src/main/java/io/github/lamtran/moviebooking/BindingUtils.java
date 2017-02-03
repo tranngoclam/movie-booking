@@ -5,10 +5,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import java.util.List;
-import java.util.Map;
 
 import io.github.lamtran.moviebooking.model.state.State;
-import io.github.lamtran.moviebooking.ui.viewholder.SeatViewHolderFactory;
 
 /**
  * Created by lam on 2/3/17.
@@ -16,11 +14,9 @@ import io.github.lamtran.moviebooking.ui.viewholder.SeatViewHolderFactory;
 
 public final class BindingUtils {
 
-  @BindingAdapter({"seats", "factory"})
-  public static void setSeats(RecyclerView recyclerView, List<Seat> seats, Map<Integer, SeatViewHolderFactory> seatViewHolderFactoryMap) {
-    SeatAdapter adapter = (SeatAdapter) recyclerView.getAdapter();
-    if (adapter == null) {
-      adapter = new SeatAdapter(seatViewHolderFactoryMap);
+  @BindingAdapter({"adapter", "seats"})
+  public static void setSeats(RecyclerView recyclerView, SeatAdapter adapter, List<Seat> seats) {
+    if (recyclerView.getAdapter() == null) {
       recyclerView.setAdapter(adapter);
     }
     adapter.setSeats(seats);

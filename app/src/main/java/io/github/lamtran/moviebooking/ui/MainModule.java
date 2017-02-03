@@ -37,8 +37,8 @@ public class MainModule {
 
   @ActivityScope
   @Provides
-  MainViewModel provideMainViewModel(Map<Integer, SeatViewHolderFactory> seatViewHolderFactoryMap) {
-    return new MainViewModel(seatViewHolderFactoryMap);
+  MainViewModel provideMainViewModel(SeatAdapter seatAdapter) {
+    return new MainViewModel(seatAdapter);
   }
 
   @Provides

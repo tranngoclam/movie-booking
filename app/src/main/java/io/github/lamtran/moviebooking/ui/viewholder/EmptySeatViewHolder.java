@@ -2,7 +2,8 @@ package io.github.lamtran.moviebooking.ui.viewholder;
 
 import com.google.auto.factory.AutoFactory;
 
-import android.view.View;
+import android.databinding.ViewDataBinding;
+import android.util.Log;
 
 import io.github.lamtran.moviebooking.Seat;
 
@@ -12,12 +13,14 @@ import io.github.lamtran.moviebooking.Seat;
 @AutoFactory(implementing = SeatViewHolderFactory.class)
 public class EmptySeatViewHolder extends SeatViewHolder {
 
-  public EmptySeatViewHolder(View itemView) {
-    super(itemView);
+  public EmptySeatViewHolder(ViewDataBinding binding) {
+    super(binding);
   }
 
   @Override
   public void bind(Seat seat) {
-
+    if (seat != null) {
+      Log.d("TAG", seat.getCol() + ", " + seat.getRow());
+    }
   }
 }

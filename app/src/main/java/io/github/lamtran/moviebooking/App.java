@@ -1,5 +1,7 @@
 package io.github.lamtran.moviebooking;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
+
 import android.app.Application;
 
 import io.github.lamtran.moviebooking.di.AppComponent;
@@ -21,6 +23,8 @@ public class App extends Application {
     mAppComponent = DaggerAppComponent.builder()
         .appModule(new AppModule(this))
         .build();
+
+    Fresco.initialize(this);
   }
 
   public AppComponent getAppComponent() {

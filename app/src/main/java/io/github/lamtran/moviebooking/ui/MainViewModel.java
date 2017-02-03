@@ -2,16 +2,12 @@ package io.github.lamtran.moviebooking.ui;
 
 import android.databinding.BaseObservable;
 import android.databinding.ObservableArrayList;
-import android.databinding.ObservableArrayMap;
-import android.databinding.ObservableMap;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import android.databinding.ObservableField;
+import android.databinding.ObservableList;
 
 import io.github.lamtran.moviebooking.Seat;
-import io.github.lamtran.moviebooking.model.state.EmptyState;
-import io.github.lamtran.moviebooking.ui.viewholder.SeatViewHolderFactory;
+import io.github.lamtran.moviebooking.SeatAdapter;
+import io.github.lamtran.moviebooking.util.AppUtils;
 
 /**
  * Created by lam on 2/3/17.
@@ -19,19 +15,13 @@ import io.github.lamtran.moviebooking.ui.viewholder.SeatViewHolderFactory;
 
 public class MainViewModel extends BaseObservable {
 
-  public final ObservableMap<Integer, SeatViewHolderFactory> factory = new ObservableArrayMap<>();
+  public final ObservableField<SeatAdapter> adapter = new ObservableField<>();
 
-  public final ObservableArrayList<Seat> seats = new ObservableArrayList<>();
+  public final ObservableList<Seat> seats = new ObservableArrayList<>();
 
-  public MainViewModel(Map<Integer, SeatViewHolderFactory> seatViewHolderFactoryMap) {
-    factory.clear();
-    factory.putAll(seatViewHolderFactoryMap);
-  }
-
-  private List<Seat> fakeData(int size) {
-    List<Seat> seats = new ArrayList<>(size * size);
-    seats.add(new Seat(0, 0, new EmptyState()));
-
-    return seats;
+  public MainViewModel(SeatAdapter adapter) {
+    this.adapter.set(adapter);
+    this.seats.clear();
+    this.seats.addAll(AppUtils.fakeSeats());
   }
 }
