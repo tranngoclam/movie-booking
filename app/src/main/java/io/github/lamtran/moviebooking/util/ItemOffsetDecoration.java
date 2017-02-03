@@ -22,36 +22,30 @@
  * SOFTWARE.
  */
 
-package io.github.lamtran.moviebooking;
+package io.github.lamtran.moviebooking.util;
 
-import com.facebook.drawee.backends.pipeline.Fresco;
+import android.content.Context;
+import android.graphics.Rect;
+import android.support.annotation.DimenRes;
+import android.support.annotation.NonNull;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
-import android.app.Application;
+public class ItemOffsetDecoration extends RecyclerView.ItemDecoration {
 
-import io.github.lamtran.moviebooking.di.AppComponent;
-import io.github.lamtran.moviebooking.di.AppModule;
-import io.github.lamtran.moviebooking.di.DaggerAppComponent;
+  private int mItemOffset;
 
-/**
- * Created by lam on 2/3/17.
- */
-
-public class App extends Application {
-
-  private AppComponent mAppComponent;
-
-  @Override
-  public void onCreate() {
-    super.onCreate();
-
-    mAppComponent = DaggerAppComponent.builder()
-        .appModule(new AppModule(this))
-        .build();
-
-    Fresco.initialize(this);
+  public ItemOffsetDecoration(int itemOffset) {
+    mItemOffset = itemOffset;
   }
 
-  public AppComponent getAppComponent() {
-    return mAppComponent;
+  public ItemOffsetDecoration(@NonNull Context context, @DimenRes int itemOffsetId) {
+    this(context.getResources().getDimensionPixelSize(itemOffsetId));
+  }
+
+  @Override
+  public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+    super.getItemOffsets(outRect, view, parent, state);
+    outRect.set(mItemOffset, mItemOffset, mItemOffset, mItemOffset);
   }
 }
