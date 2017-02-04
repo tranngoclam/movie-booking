@@ -1,4 +1,4 @@
-<a href='https://ko-fi.com/A280K7T' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi3.png?v=f' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+[![](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=tranngoclam288%40gmail%2ecom&lc=VN&item_name=Lam%20Tran&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted)
 
 # Movie Booking
 
