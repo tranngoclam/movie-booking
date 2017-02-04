@@ -22,7 +22,7 @@ To manage these states, we use [State Design Pattern](https://github.com/iluwata
 * A `selected seat` can be deselected to be an `available seat`, its state changes from `SELECTED` to `AVAILABLE`
 
 ### Android Data Binding
-For any state changes, we update the UI of the seat correspondingly by using `@BindingAdapter` and `@Bindable` annotations defined in `Android Data Binding`. Example:
+For any state changes, we update the UI of the seat correspondingly by using `@BindingAdapter` and `@Bindable` annotations defined in [Android Data Binding](https://developer.android.com/topic/libraries/data-binding/index.html). Example:
 * In a layout of a seat, we bind a state value to UI by: `app:state="@{data.state}"`.
 * A state defined in Java code is: `@Bindable State mState;` and must have getter `public State getState() { return mState; }`.
 * If we want to change the state and update to the UI, we set `mState = new NewState();` then `notifyPropertyChanged(BR.state);`, noted that `BR.state` is generated after building our application.
@@ -57,7 +57,7 @@ public SeatViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 # TODO
 * Write Unit Test to verify any action from the views.
 * Support selecting many seats and handle exception if the selection reaches the maximum.
- * Try to use RxJava to extend the concept.
+* Try to use RxJava to extend the concept.
 
 # References
 * http://frogermcs.github.io/inject-everything-viewholder-and-dagger-2-example/
