@@ -27,7 +27,7 @@ package io.github.lamtran.moviebooking.ui.viewholder;
 import android.databinding.ViewDataBinding;
 import android.support.v7.widget.RecyclerView;
 
-import io.github.lamtran.moviebooking.Seat;
+import io.github.lamtran.moviebooking.model.Seat;
 import io.github.lamtran.moviebooking.databinding.ItemSeatBinding;
 
 /**

@@ -31,6 +31,7 @@ import android.support.v7.widget.RecyclerView;
 
 import java.util.List;
 
+import io.github.lamtran.moviebooking.model.Seat;
 import io.github.lamtran.moviebooking.model.state.AvailableState;
 import io.github.lamtran.moviebooking.model.state.EmptyState;
 import io.github.lamtran.moviebooking.model.state.ReservedState;

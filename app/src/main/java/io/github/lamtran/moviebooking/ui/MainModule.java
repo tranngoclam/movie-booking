@@ -30,7 +30,7 @@ import dagger.Module;
 import dagger.Provides;
 import dagger.multibindings.IntKey;
 import dagger.multibindings.IntoMap;
-import io.github.lamtran.moviebooking.Seat;
+import io.github.lamtran.moviebooking.model.Seat;
 import io.github.lamtran.moviebooking.SeatAdapter;
 import io.github.lamtran.moviebooking.di.ActivityScope;
 import io.github.lamtran.moviebooking.ui.viewholder.AvailableSeatViewHolderFactory;

@@ -29,11 +29,11 @@
 
     <variable
       name="data"
-      type="io.github.lamtran.moviebooking.Seat" />
+      type="io.github.lamtran.moviebooking.model.Seat" />
 
     <variable
       name="action"
-      type="io.github.lamtran.moviebooking.SeatActionCallback" />
+      type="io.github.lamtran.moviebooking.model.action.SeatActionCallback" />
   </data>
 
   <com.facebook.drawee.view.SimpleDraweeView

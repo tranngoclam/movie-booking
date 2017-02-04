@@ -29,7 +29,7 @@ import android.databinding.ObservableArrayList;
 import android.databinding.ObservableField;
 import android.databinding.ObservableList;
 
-import io.github.lamtran.moviebooking.Seat;
+import io.github.lamtran.moviebooking.model.Seat;
 import io.github.lamtran.moviebooking.SeatAdapter;
 import io.github.lamtran.moviebooking.util.AppUtils;
 

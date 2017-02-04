@@ -22,7 +22,9 @@
  * SOFTWARE.
  */
 
-package io.github.lamtran.moviebooking;
+package io.github.lamtran.moviebooking.model.action;
+
+import io.github.lamtran.moviebooking.model.Seat;
 
 /**
  * Created by lam on 2/3/17.

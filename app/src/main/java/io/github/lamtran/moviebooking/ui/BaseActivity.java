@@ -24,10 +24,9 @@
 
 package io.github.lamtran.moviebooking.ui;
 
-import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
-
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 
 import io.github.lamtran.moviebooking.App;
 import io.github.lamtran.moviebooking.di.ActivityComponent;
@@ -37,7 +36,7 @@ import io.github.lamtran.moviebooking.di.ActivityModule;
  * Created by lam on 2/3/17.
  */
 
-public abstract class BaseActivity extends RxAppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity {
 
   private ActivityComponent mActivityComponent;
 

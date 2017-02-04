@@ -33,9 +33,6 @@ def android_support = "25.1.1"
 def fresco = "1.0.1"
 def dagger = "2.8"
 def auto_factory = "1.0-beta3"
-def rxjava = "2.0.5"
-def rxandroid = "2.0.1"
-def rxlifecycle = "2.0.1"
 def timber = "4.5.1"
 
 def espresso = "2.2.2"
@@ -57,13 +54,6 @@ dependencies {
   apt "com.google.dagger:dagger-compiler:$dagger"
 
   compile "com.google.auto.factory:auto-factory:$auto_factory"
-
-  compile "io.reactivex.rxjava2:rxjava:$rxjava"
-  compile "io.reactivex.rxjava2:rxandroid:$rxandroid"
-
-  compile("com.trello.rxlifecycle2:rxlifecycle:$rxlifecycle") { transitive = true }
-  compile("com.trello.rxlifecycle2:rxlifecycle-android:$rxlifecycle") { transitive = true }
-  compile("com.trello.rxlifecycle2:rxlifecycle-components:$rxlifecycle") { transitive = true }
 
   compile "com.jakewharton.timber:timber:$timber"
 

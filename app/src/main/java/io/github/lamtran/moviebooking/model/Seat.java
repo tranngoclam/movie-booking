@@ -22,11 +22,12 @@
  * SOFTWARE.
  */
 
-package io.github.lamtran.moviebooking;
+package io.github.lamtran.moviebooking.model;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 
+import io.github.lamtran.moviebooking.BR;
 import io.github.lamtran.moviebooking.model.state.AvailableState;
 import io.github.lamtran.moviebooking.model.state.EmptyState;
 import io.github.lamtran.moviebooking.model.state.ReservedState;
@@ -34,10 +35,10 @@ import io.github.lamtran.moviebooking.model.state.SelectedState;
 import io.github.lamtran.moviebooking.model.state.State;
 import io.github.lamtran.moviebooking.model.state.UnknownState;
 
-import static io.github.lamtran.moviebooking.Seat.Type.AVAILABLE;
-import static io.github.lamtran.moviebooking.Seat.Type.EMPTY;
-import static io.github.lamtran.moviebooking.Seat.Type.RESERVED;
-import static io.github.lamtran.moviebooking.Seat.Type.SELECTED;
+import static io.github.lamtran.moviebooking.model.Seat.Type.AVAILABLE;
+import static io.github.lamtran.moviebooking.model.Seat.Type.EMPTY;
+import static io.github.lamtran.moviebooking.model.Seat.Type.RESERVED;
+import static io.github.lamtran.moviebooking.model.Seat.Type.SELECTED;
 
 /**
  * Created by lam on 2/3/17.
