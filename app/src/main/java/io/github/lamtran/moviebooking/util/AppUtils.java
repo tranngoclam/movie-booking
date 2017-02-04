@@ -35,6 +35,8 @@ import io.github.lamtran.moviebooking.model.Seat;
 
 public final class AppUtils {
 
+  public static final int MAX_SELECTION = 2;
+
   public static final int SIZE = 4;
 
   public static List<Seat> fakeSeats() {

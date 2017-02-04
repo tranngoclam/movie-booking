@@ -22,16 +22,42 @@
  * SOFTWARE.
  */
 
-package io.github.lamtran.moviebooking.model.state;
+package io.github.lamtran.moviebooking.util;
+
+import android.app.Activity;
+import android.support.annotation.StringRes;
+import android.widget.Toast;
 
 /**
- * Created by lam on 2/3/17.
+ * Created by lam on 2/4/17.
  */
 
-public class UnknownState implements State {
+public class Toaster {
 
-  @Override
-  public boolean isSelectable() {
-    return false;
+  private final Activity mActivity;
+
+  public Toaster(Activity activity) {
+    mActivity = activity;
+  }
+
+  public void showLongToast(String text) {
+    Toast.makeText(mActivity, text, Toast.LENGTH_LONG).show();
+  }
+
+  public void showLongToast(@StringRes int resId) {
+    Toast.makeText(mActivity, resId, Toast.LENGTH_LONG).show();
+  }
+
+  public void showShortToast(@StringRes int resId) {
+    Toast.makeText(mActivity, resId, Toast.LENGTH_SHORT).show();
+  }
+
+  public void showShortToast(String text) {
+    Toast.makeText(mActivity, text, Toast.LENGTH_SHORT).show();
+  }
+
+  public void showShortToast(@StringRes int resId, Object... formatArgs) {
+    Toast.makeText(mActivity, mActivity.getString(resId, formatArgs), Toast.LENGTH_SHORT).show();
+    ;
   }
 }

@@ -22,10 +22,9 @@
  * SOFTWARE.
  */
 
-package io.github.lamtran.moviebooking;
+package io.github.lamtran.moviebooking.ui;
 
 import android.databinding.DataBindingUtil;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -33,6 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import io.github.lamtran.moviebooking.R;
 import io.github.lamtran.moviebooking.databinding.ItemSeatBinding;
 import io.github.lamtran.moviebooking.model.Seat;
 import io.github.lamtran.moviebooking.model.state.AvailableState;
@@ -42,12 +42,13 @@ import io.github.lamtran.moviebooking.model.state.SelectedState;
 import io.github.lamtran.moviebooking.model.state.State;
 import io.github.lamtran.moviebooking.ui.viewholder.SeatViewHolder;
 import io.github.lamtran.moviebooking.ui.viewholder.SeatViewHolderFactory;
+import io.github.lamtran.moviebooking.util.SelectableAdapter;
 
 /**
  * Created by lam on 2/3/17.
  */
 
-public class SeatAdapter extends RecyclerView.Adapter<SeatViewHolder> {
+public class SeatAdapter extends SelectableAdapter<SeatViewHolder> {
 
   private final Map<Integer, SeatViewHolderFactory> mSeatViewHolderFactoryMap;
 
@@ -83,7 +84,15 @@ public class SeatAdapter extends RecyclerView.Adapter<SeatViewHolder> {
   @Override
   public void onBindViewHolder(SeatViewHolder holder, int position) {
     holder.binding.setData(mSeats.get(position));
-    holder.binding.setAction(Seat::changeState);
+    holder.binding.setAction(seat -> {
+      if (seat.isStateSelectable()) {
+        if (toggleSelection(position)) {
+          seat.changeState();
+        } else {
+          mOnMaxSelectionReachedListener.onMaxSelectionReached();
+        }
+      }
+    });
   }
 
   @Override

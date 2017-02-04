@@ -28,8 +28,6 @@ import com.google.auto.factory.AutoFactory;
 
 import android.databinding.ViewDataBinding;
 
-import io.github.lamtran.moviebooking.model.Seat;
-
 /**
  * Created by lam on 2/3/17.
  */
@@ -38,9 +36,5 @@ public class EmptySeatViewHolder extends SeatViewHolder {
 
   public EmptySeatViewHolder(ViewDataBinding binding) {
     super(binding);
-  }
-
-  @Override
-  public void bind(Seat seat) {
   }
 }

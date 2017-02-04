@@ -89,6 +89,10 @@ public class Seat extends BaseObservable {
     return mState;
   }
 
+  public boolean isStateSelectable() {
+    return mState.isSelectable();
+  }
+
   public interface Type {
 
     int AVAILABLE = 2;

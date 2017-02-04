@@ -31,6 +31,7 @@ import io.github.lamtran.moviebooking.ui.MainModule;
 /**
  * Created by lam on 2/3/17.
  */
+@ActivityScope
 @Subcomponent(modules = ActivityModule.class)
 public interface ActivityComponent {
 

@@ -22,16 +22,25 @@
  * SOFTWARE.
  */
 
-package io.github.lamtran.moviebooking.model.state;
+package io.github.lamtran.moviebooking.util;
+
+import java.util.List;
 
 /**
- * Created by lam on 2/3/17.
+ * Created by lam on 2/4/17.
  */
 
-public class UnknownState implements State {
+public interface Selectable {
 
-  @Override
-  public boolean isSelectable() {
-    return false;
-  }
+  void clearSelection();
+
+  int getSelectedItemCount();
+
+  List<Integer> getSelectedItems();
+
+  boolean isMaxSelectionReached();
+
+  boolean isSelected(int position);
+
+  boolean toggleSelection(int position);
 }

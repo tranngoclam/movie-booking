@@ -29,6 +29,7 @@ import android.content.Context;
 
 import dagger.Module;
 import dagger.Provides;
+import io.github.lamtran.moviebooking.util.Toaster;
 
 /**
  * Created by lam on 2/3/17.
@@ -46,5 +47,11 @@ public class ActivityModule {
   @Provides
   Context provideContext() {
     return mActivity;
+  }
+
+  @ActivityScope
+  @Provides
+  Toaster provideToaster() {
+    return new Toaster(mActivity);
   }
 }

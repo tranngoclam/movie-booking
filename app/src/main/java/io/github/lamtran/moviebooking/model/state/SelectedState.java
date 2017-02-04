@@ -30,4 +30,8 @@ package io.github.lamtran.moviebooking.model.state;
 
 public class SelectedState implements State {
 
+  @Override
+  public boolean isSelectable() {
+    return true;
+  }
 }

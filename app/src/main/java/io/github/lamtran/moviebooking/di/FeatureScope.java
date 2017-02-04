@@ -22,16 +22,18 @@
  * SOFTWARE.
  */
 
-package io.github.lamtran.moviebooking.model.state;
+package io.github.lamtran.moviebooking.di;
+
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
+import javax.inject.Scope;
 
 /**
- * Created by lam on 2/3/17.
+ * Created by lam on 2/4/17.
  */
+@Scope
+@Retention(RetentionPolicy.RUNTIME)
+public @interface FeatureScope {
 
-public class UnknownState implements State {
-
-  @Override
-  public boolean isSelectable() {
-    return false;
-  }
 }

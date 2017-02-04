@@ -31,19 +31,24 @@ import dagger.Provides;
 import dagger.multibindings.IntKey;
 import dagger.multibindings.IntoMap;
 import io.github.lamtran.moviebooking.model.Seat;
-import io.github.lamtran.moviebooking.SeatAdapter;
-import io.github.lamtran.moviebooking.di.ActivityScope;
 import io.github.lamtran.moviebooking.ui.viewholder.AvailableSeatViewHolderFactory;
 import io.github.lamtran.moviebooking.ui.viewholder.EmptySeatViewHolderFactory;
 import io.github.lamtran.moviebooking.ui.viewholder.ReservedSeatViewHolderFactory;
 import io.github.lamtran.moviebooking.ui.viewholder.SeatViewHolderFactory;
 import io.github.lamtran.moviebooking.ui.viewholder.SelectedSeatViewHolderFactory;
+import io.github.lamtran.moviebooking.util.Toaster;
 
 /**
  * Created by lam on 2/3/17.
  */
 @Module
 public class MainModule {
+
+  private final int mMaxSelection;
+
+  public MainModule(int maxSelection) {
+    mMaxSelection = maxSelection;
+  }
 
   @Provides
   @IntoMap
@@ -59,10 +64,9 @@ public class MainModule {
     return new EmptySeatViewHolderFactory();
   }
 
-  @ActivityScope
   @Provides
-  MainViewModel provideMainViewModel(SeatAdapter seatAdapter) {
-    return new MainViewModel(seatAdapter);
+  MainViewModel provideMainViewModel(Toaster toaster, SeatAdapter seatAdapter) {
+    return new MainViewModel(toaster, seatAdapter, mMaxSelection);
   }
 
   @Provides
@@ -72,7 +76,6 @@ public class MainModule {
     return new ReservedSeatViewHolderFactory();
   }
 
-  @ActivityScope
   @Provides
   SeatAdapter provideSeatAdapter(Map<Integer, SeatViewHolderFactory> seatViewHolderFactoryMap) {
     return new SeatAdapter(seatViewHolderFactoryMap);

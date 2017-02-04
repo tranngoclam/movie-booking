@@ -45,7 +45,7 @@ public class MainActivity extends BaseActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    mViewModel = getActivityComponent().mainComponent(new MainModule()).mainViewModel();
+    mViewModel = getActivityComponent().mainComponent(new MainModule(AppUtils.MAX_SELECTION)).mainViewModel();
 
     mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
     mBinding.setViewModel(mViewModel);

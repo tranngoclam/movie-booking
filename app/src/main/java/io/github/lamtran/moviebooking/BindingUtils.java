@@ -37,6 +37,7 @@ import io.github.lamtran.moviebooking.model.state.EmptyState;
 import io.github.lamtran.moviebooking.model.state.ReservedState;
 import io.github.lamtran.moviebooking.model.state.SelectedState;
 import io.github.lamtran.moviebooking.model.state.State;
+import io.github.lamtran.moviebooking.ui.SeatAdapter;
 
 /**
  * Created by lam on 2/3/17.

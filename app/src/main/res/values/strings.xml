@@ -24,4 +24,5 @@
 
 <resources>
   <string name="app_name">movie-booking</string>
+  <string name="max_selection_reached">The maximum number of seats is %d</string>
 </resources>

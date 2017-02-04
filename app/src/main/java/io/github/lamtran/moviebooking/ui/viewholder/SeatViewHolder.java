@@ -27,7 +27,6 @@ package io.github.lamtran.moviebooking.ui.viewholder;
 import android.databinding.ViewDataBinding;
 import android.support.v7.widget.RecyclerView;
 
-import io.github.lamtran.moviebooking.model.Seat;
 import io.github.lamtran.moviebooking.databinding.ItemSeatBinding;
 
 /**
@@ -35,8 +34,6 @@ import io.github.lamtran.moviebooking.databinding.ItemSeatBinding;
  */
 
 public abstract class SeatViewHolder extends RecyclerView.ViewHolder {
-
-  public abstract void bind(Seat seat);
 
   public final ItemSeatBinding binding;
 

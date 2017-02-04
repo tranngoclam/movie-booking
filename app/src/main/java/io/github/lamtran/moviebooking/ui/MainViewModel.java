@@ -29,9 +29,10 @@ import android.databinding.ObservableArrayList;
 import android.databinding.ObservableField;
 import android.databinding.ObservableList;
 
+import io.github.lamtran.moviebooking.R;
 import io.github.lamtran.moviebooking.model.Seat;
-import io.github.lamtran.moviebooking.SeatAdapter;
 import io.github.lamtran.moviebooking.util.AppUtils;
+import io.github.lamtran.moviebooking.util.Toaster;
 
 /**
  * Created by lam on 2/3/17.
@@ -43,7 +44,12 @@ public class MainViewModel extends BaseObservable {
 
   public final ObservableList<Seat> seats = new ObservableArrayList<>();
 
-  public MainViewModel(SeatAdapter adapter) {
+  private final Toaster mToaster;
+
+  public MainViewModel(Toaster toaster, SeatAdapter adapter, int maxSelection) {
+    mToaster = toaster;
+    adapter.setOnMaxSelectionReachedListener(() -> mToaster.showShortToast(R.string.max_selection_reached, maxSelection));
+    adapter.setMaxSelection(maxSelection);
     this.adapter.set(adapter);
     this.seats.clear();
     this.seats.addAll(AppUtils.fakeSeats());
