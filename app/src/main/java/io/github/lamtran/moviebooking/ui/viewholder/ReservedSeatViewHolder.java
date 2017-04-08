@@ -38,17 +38,13 @@ public class ReservedSeatViewHolder extends SeatViewHolder {
     super(binding);
   }
 
-  public static final class ReservedSeatViewHolderFactory
-      implements SeatViewHolderFactory {
-    @Inject
-    public ReservedSeatViewHolderFactory() {
-    }
-    public ReservedSeatViewHolder create(android.databinding.ViewDataBinding binding) {
-      return new ReservedSeatViewHolder(binding);
-    }
+  public static final class Factory implements SeatViewHolderFactory {
+
+    @Inject public Factory() {}
+
     @Override
-    public ReservedSeatViewHolder createViewHolder(android.databinding.ViewDataBinding binding) {
-      return create(binding);
+    public ReservedSeatViewHolder createViewHolder(ViewDataBinding binding) {
+      return new ReservedSeatViewHolder(binding);
     }
   }
 }

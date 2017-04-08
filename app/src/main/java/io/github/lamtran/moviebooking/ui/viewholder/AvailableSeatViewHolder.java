@@ -38,20 +38,13 @@ public class AvailableSeatViewHolder extends SeatViewHolder {
     super(binding);
   }
 
-  public static final class AvailableSeatViewHolderFactory
-      implements SeatViewHolderFactory {
+  public static final class Factory implements SeatViewHolderFactory {
 
-    @Inject
-    public AvailableSeatViewHolderFactory() {
-    }
-
-    public AvailableSeatViewHolder create(android.databinding.ViewDataBinding binding) {
-      return new AvailableSeatViewHolder(binding);
-    }
+    @Inject public Factory() {}
 
     @Override
-    public AvailableSeatViewHolder createViewHolder(android.databinding.ViewDataBinding binding) {
-      return create(binding);
+    public AvailableSeatViewHolder createViewHolder(ViewDataBinding binding) {
+      return new AvailableSeatViewHolder(binding);
     }
   }
 }

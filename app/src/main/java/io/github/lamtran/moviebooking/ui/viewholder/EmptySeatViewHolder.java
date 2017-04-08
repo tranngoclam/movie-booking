@@ -38,17 +38,12 @@ public class EmptySeatViewHolder extends SeatViewHolder {
     super(binding);
   }
 
-  public static final class EmptySeatViewHolderFactory
-      implements SeatViewHolderFactory {
-    @Inject
-    public EmptySeatViewHolderFactory() {
-    }
-    public EmptySeatViewHolder create(android.databinding.ViewDataBinding binding) {
-      return new EmptySeatViewHolder(binding);
-    }
+  public static final class Factory implements SeatViewHolderFactory {
+    @Inject public Factory() {}
+
     @Override
-    public EmptySeatViewHolder createViewHolder(android.databinding.ViewDataBinding binding) {
-      return create(binding);
+    public EmptySeatViewHolder createViewHolder(ViewDataBinding binding) {
+      return new EmptySeatViewHolder(binding);
     }
   }
 }

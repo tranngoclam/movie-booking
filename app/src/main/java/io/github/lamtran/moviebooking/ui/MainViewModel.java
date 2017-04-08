@@ -29,7 +29,10 @@ import android.databinding.ObservableArrayList;
 import android.databinding.ObservableField;
 import android.databinding.ObservableList;
 
+import javax.inject.Inject;
+
 import io.github.lamtran.moviebooking.R;
+import io.github.lamtran.moviebooking.di.ActivityScope;
 import io.github.lamtran.moviebooking.model.Seat;
 import io.github.lamtran.moviebooking.util.AppUtils;
 import io.github.lamtran.moviebooking.util.Toaster;
@@ -38,7 +41,7 @@ import io.github.lamtran.moviebooking.util.Toaster;
  * Created by lam on 2/3/17.
  */
 
-public class MainViewModel extends BaseObservable {
+@ActivityScope public class MainViewModel extends BaseObservable {
 
   public final ObservableField<SeatAdapter> adapter = new ObservableField<>();
 
@@ -46,10 +49,10 @@ public class MainViewModel extends BaseObservable {
 
   private final Toaster mToaster;
 
-  public MainViewModel(Toaster toaster, SeatAdapter adapter, int maxSelection) {
+ @Inject public MainViewModel(Toaster toaster, SeatAdapter adapter) {
     mToaster = toaster;
-    adapter.setOnMaxSelectionReachedListener(() -> mToaster.showShortToast(R.string.max_selection_reached, maxSelection));
-    adapter.setMaxSelection(maxSelection);
+    adapter.setOnMaxSelectionReachedListener(() -> mToaster.showShortToast(R.string.max_selection_reached, AppUtils.MAX_SELECTION));
+    adapter.setMaxSelection(AppUtils.MAX_SELECTION);
     this.adapter.set(adapter);
     this.seats.clear();
     this.seats.addAll(AppUtils.fakeSeats());

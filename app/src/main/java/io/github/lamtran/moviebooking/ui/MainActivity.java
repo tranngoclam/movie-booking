@@ -28,6 +28,8 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 
+import javax.inject.Inject;
+
 import io.github.lamtran.moviebooking.R;
 import io.github.lamtran.moviebooking.databinding.ActivityMainBinding;
 import io.github.lamtran.moviebooking.util.AppUtils;
@@ -39,13 +41,11 @@ public class MainActivity extends BaseActivity {
 
   private GridLayoutManager mLayoutManager;
 
-  private MainViewModel mViewModel;
+  @Inject MainViewModel mViewModel;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-
-    mViewModel = getActivityComponent().mainComponent(new MainModule(AppUtils.MAX_SELECTION)).mainViewModel();
 
     mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
     mBinding.setViewModel(mViewModel);

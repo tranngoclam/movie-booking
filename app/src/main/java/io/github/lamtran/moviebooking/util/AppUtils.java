@@ -41,25 +41,25 @@ public final class AppUtils {
 
   public static List<Seat> fakeSeats() {
     List<Seat> seats = new ArrayList<>(SIZE * SIZE);
-    seats.add(new Seat(0, 0, Seat.Type.AVAILABLE));
-    seats.add(new Seat(0, 1, Seat.Type.AVAILABLE));
-    seats.add(new Seat(0, 2, Seat.Type.EMPTY));
-    seats.add(new Seat(0, 3, Seat.Type.AVAILABLE));
+    seats.add(new Seat(Seat.Type.AVAILABLE));
+    seats.add(new Seat(Seat.Type.AVAILABLE));
+    seats.add(new Seat(Seat.Type.EMPTY));
+    seats.add(new Seat(Seat.Type.AVAILABLE));
 
-    seats.add(new Seat(1, 0, Seat.Type.RESERVED));
-    seats.add(new Seat(1, 1, Seat.Type.AVAILABLE));
-    seats.add(new Seat(1, 2, Seat.Type.EMPTY));
-    seats.add(new Seat(1, 3, Seat.Type.AVAILABLE));
+    seats.add(new Seat(Seat.Type.RESERVED));
+    seats.add(new Seat(Seat.Type.AVAILABLE));
+    seats.add(new Seat(Seat.Type.EMPTY));
+    seats.add(new Seat(Seat.Type.AVAILABLE));
 
-    seats.add(new Seat(2, 0, Seat.Type.RESERVED));
-    seats.add(new Seat(2, 1, Seat.Type.RESERVED));
-    seats.add(new Seat(2, 2, Seat.Type.EMPTY));
-    seats.add(new Seat(2, 3, Seat.Type.AVAILABLE));
+    seats.add(new Seat(Seat.Type.RESERVED));
+    seats.add(new Seat(Seat.Type.RESERVED));
+    seats.add(new Seat(Seat.Type.EMPTY));
+    seats.add(new Seat(Seat.Type.AVAILABLE));
 
-    seats.add(new Seat(3, 0, Seat.Type.AVAILABLE));
-    seats.add(new Seat(3, 1, Seat.Type.AVAILABLE));
-    seats.add(new Seat(3, 2, Seat.Type.EMPTY));
-    seats.add(new Seat(3, 3, Seat.Type.RESERVED));
+    seats.add(new Seat(Seat.Type.AVAILABLE));
+    seats.add(new Seat(Seat.Type.AVAILABLE));
+    seats.add(new Seat(Seat.Type.EMPTY));
+    seats.add(new Seat(Seat.Type.RESERVED));
 
     return seats;
   }

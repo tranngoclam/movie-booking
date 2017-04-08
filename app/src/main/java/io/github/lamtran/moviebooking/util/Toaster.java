@@ -28,15 +28,21 @@ import android.app.Activity;
 import android.support.annotation.StringRes;
 import android.widget.Toast;
 
+import javax.inject.Inject;
+
+import io.github.lamtran.moviebooking.di.ActivityScope;
+import io.github.lamtran.moviebooking.ui.BaseActivity;
+
 /**
  * Created by lam on 2/4/17.
  */
 
-public class Toaster {
+@ActivityScope public class Toaster {
 
   private final Activity mActivity;
 
-  public Toaster(Activity activity) {
+@Inject
+public Toaster(BaseActivity activity) {
     mActivity = activity;
   }
 
