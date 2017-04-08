@@ -31,11 +31,11 @@ import dagger.Provides;
 import dagger.multibindings.IntKey;
 import dagger.multibindings.IntoMap;
 import io.github.lamtran.moviebooking.model.Seat;
-import io.github.lamtran.moviebooking.ui.viewholder.AvailableSeatViewHolderFactory;
-import io.github.lamtran.moviebooking.ui.viewholder.EmptySeatViewHolderFactory;
-import io.github.lamtran.moviebooking.ui.viewholder.ReservedSeatViewHolderFactory;
+import io.github.lamtran.moviebooking.ui.viewholder.AvailableSeatViewHolder;
+import io.github.lamtran.moviebooking.ui.viewholder.EmptySeatViewHolder;
+import io.github.lamtran.moviebooking.ui.viewholder.ReservedSeatViewHolder;
 import io.github.lamtran.moviebooking.ui.viewholder.SeatViewHolderFactory;
-import io.github.lamtran.moviebooking.ui.viewholder.SelectedSeatViewHolderFactory;
+import io.github.lamtran.moviebooking.ui.viewholder.SelectedSeatViewHolder;
 import io.github.lamtran.moviebooking.util.Toaster;
 
 /**
@@ -54,14 +54,14 @@ public class MainModule {
   @IntoMap
   @IntKey(Seat.Type.AVAILABLE)
   SeatViewHolderFactory provideAvailableSeatViewHolder() {
-    return new AvailableSeatViewHolderFactory();
+    return new AvailableSeatViewHolder.AvailableSeatViewHolderFactory();
   }
 
   @Provides
   @IntoMap
   @IntKey(Seat.Type.EMPTY)
   SeatViewHolderFactory provideEmptySeatViewHolder() {
-    return new EmptySeatViewHolderFactory();
+    return new EmptySeatViewHolder.EmptySeatViewHolderFactory();
   }
 
   @Provides
@@ -73,7 +73,7 @@ public class MainModule {
   @IntoMap
   @IntKey(Seat.Type.RESERVED)
   SeatViewHolderFactory provideReservedSeatViewHolder() {
-    return new ReservedSeatViewHolderFactory();
+    return new ReservedSeatViewHolder.ReservedSeatViewHolderFactory();
   }
 
   @Provides
@@ -85,6 +85,6 @@ public class MainModule {
   @IntoMap
   @IntKey(Seat.Type.SELECTED)
   SeatViewHolderFactory provideSelectedSeatViewHolder() {
-    return new SelectedSeatViewHolderFactory();
+    return new SelectedSeatViewHolder.SelectedSeatViewHolderFactory();
   }
 }

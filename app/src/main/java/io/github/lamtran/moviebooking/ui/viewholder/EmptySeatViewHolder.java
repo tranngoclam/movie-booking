@@ -24,17 +24,31 @@
 
 package io.github.lamtran.moviebooking.ui.viewholder;
 
-import com.google.auto.factory.AutoFactory;
-
 import android.databinding.ViewDataBinding;
+
+import javax.inject.Inject;
 
 /**
  * Created by lam on 2/3/17.
  */
-@AutoFactory(implementing = SeatViewHolderFactory.class)
+
 public class EmptySeatViewHolder extends SeatViewHolder {
 
   public EmptySeatViewHolder(ViewDataBinding binding) {
     super(binding);
+  }
+
+  public static final class EmptySeatViewHolderFactory
+      implements SeatViewHolderFactory {
+    @Inject
+    public EmptySeatViewHolderFactory() {
+    }
+    public EmptySeatViewHolder create(android.databinding.ViewDataBinding binding) {
+      return new EmptySeatViewHolder(binding);
+    }
+    @Override
+    public EmptySeatViewHolder createViewHolder(android.databinding.ViewDataBinding binding) {
+      return create(binding);
+    }
   }
 }

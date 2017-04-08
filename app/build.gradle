@@ -1,10 +1,9 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'me.tatarka.retrolambda'
 
 android {
   compileSdkVersion 25
-  buildToolsVersion "25.0.2"
+  buildToolsVersion "26.0.0-rc1"
   defaultConfig {
     applicationId "io.github.lamtran.moviebooking"
     minSdkVersion 15
@@ -29,10 +28,9 @@ android {
   }
 }
 
-def android_support = "25.1.1"
+def android_support = "25.3.1"
 def fresco = "1.0.1"
-def dagger = "2.8"
-def auto_factory = "1.0-beta3"
+def dagger = "2.10"
 def timber = "4.5.1"
 
 def espresso = "2.2.2"
@@ -50,10 +48,11 @@ dependencies {
   compile "com.facebook.fresco:fresco:$fresco"
 
   compile "com.google.dagger:dagger:$dagger"
-  annotationProcessor "com.google.dagger:dagger-compiler:$dagger"
-  apt "com.google.dagger:dagger-compiler:$dagger"
+  compile "com.google.dagger:dagger-android:$dagger"
+  compile "com.google.dagger:dagger-android-support:$dagger"
 
-  compile "com.google.auto.factory:auto-factory:$auto_factory"
+  annotationProcessor "com.google.dagger:dagger-compiler:$dagger"
+  annotationProcessor "com.google.dagger:dagger-android-processor:$dagger"
 
   compile "com.jakewharton.timber:timber:$timber"
 
