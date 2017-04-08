@@ -15,11 +15,6 @@ android {
     dataBinding {
       enabled = true
     }
-
-    javaCompileOptions {
-      // - auto-factory-1.0-beta3.jar gradle error. Temporary.
-      annotationProcessorOptions.includeCompileClasspath = true
-    }
   }
   buildTypes {
     release {
@@ -36,7 +31,6 @@ android {
 def android_support = "25.3.1"
 def fresco = "1.0.1"
 def dagger = "2.10"
-def auto_factory = "1.0-beta3"
 def timber = "4.5.1"
 
 def espresso = "2.2.2"
