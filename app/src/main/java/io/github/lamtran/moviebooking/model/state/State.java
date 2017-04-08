@@ -30,5 +30,7 @@ package io.github.lamtran.moviebooking.model.state;
 
 public interface State {
 
+  int id();
+
   boolean isSelectable();
 }

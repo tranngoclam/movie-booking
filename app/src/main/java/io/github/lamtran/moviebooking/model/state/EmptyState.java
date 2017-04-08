@@ -24,11 +24,18 @@
 
 package io.github.lamtran.moviebooking.model.state;
 
+import io.github.lamtran.moviebooking.R;
+
 /**
  * Created by lam on 2/3/17.
  */
 
 public class EmptyState implements State {
+
+  @Override
+  public int id() {
+    return R.layout.item_seat;
+  }
 
   @Override
   public boolean isSelectable() {
