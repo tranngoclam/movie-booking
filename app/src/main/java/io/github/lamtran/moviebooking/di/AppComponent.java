@@ -24,13 +24,37 @@
 
 package io.github.lamtran.moviebooking.di;
 
+import android.app.Activity;
+
+import javax.inject.Singleton;
+
+import dagger.Binds;
+import dagger.BindsInstance;
 import dagger.Component;
+import dagger.android.ActivityKey;
+import dagger.android.AndroidInjector;
+import dagger.android.support.AndroidSupportInjectionModule;
+import dagger.multibindings.IntoMap;
+import io.github.lamtran.moviebooking.App;
+import io.github.lamtran.moviebooking.ui.MainActivity;
+import io.github.lamtran.moviebooking.ui.MainComponent;
 
 /**
  * Created by lam on 2/3/17.
  */
-@Component(modules = AppModule.class)
+@Singleton @Component(modules = {AndroidSupportInjectionModule.class, AppComponent.Module.class})
 public interface AppComponent {
+  void inject(App app);
 
-  ActivityComponent activityComponent(ActivityModule activityModule);
+  @Component.Builder interface Builder {
+    @BindsInstance Builder app(App app);
+
+    AppComponent build();
+  }
+
+  @dagger.Module(subcomponents = {MainComponent.class}) abstract class Module {
+
+    @Binds @IntoMap @ActivityKey(MainActivity.class)
+    abstract AndroidInjector.Factory<? extends Activity> main(MainComponent.Builder builder);
+  }
 }

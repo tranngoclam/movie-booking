@@ -46,16 +46,10 @@ import static io.github.lamtran.moviebooking.model.Seat.Type.SELECTED;
 
 public class Seat extends BaseObservable {
 
-  private final int mCol;
-
-  private final int mRow;
-
   @Bindable
   private State mState;
 
-  public Seat(int col, int row, int type) {
-    mCol = col;
-    mRow = row;
+  public Seat(int type) {
     switch (type) {
       case EMPTY:
         mState = new EmptyState();

@@ -32,8 +32,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.inject.Inject;
+
 import io.github.lamtran.moviebooking.R;
 import io.github.lamtran.moviebooking.databinding.ItemSeatBinding;
+import io.github.lamtran.moviebooking.di.ActivityScope;
 import io.github.lamtran.moviebooking.model.Seat;
 import io.github.lamtran.moviebooking.model.state.AvailableState;
 import io.github.lamtran.moviebooking.model.state.EmptyState;
@@ -48,13 +51,13 @@ import io.github.lamtran.moviebooking.util.SelectableAdapter;
  * Created by lam on 2/3/17.
  */
 
-public class SeatAdapter extends SelectableAdapter<SeatViewHolder> {
+@ActivityScope public class SeatAdapter extends SelectableAdapter<SeatViewHolder> {
 
   private final Map<Integer, SeatViewHolderFactory> mSeatViewHolderFactoryMap;
 
   private List<Seat> mSeats;
 
-  public SeatAdapter(Map<Integer, SeatViewHolderFactory> seatViewHolderFactoryMap) {
+  @Inject public SeatAdapter(Map<Integer, SeatViewHolderFactory> seatViewHolderFactoryMap) {
     mSeats = new ArrayList<>();
     mSeatViewHolderFactoryMap = seatViewHolderFactoryMap;
   }

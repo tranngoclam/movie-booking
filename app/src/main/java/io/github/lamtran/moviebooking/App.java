@@ -26,32 +26,31 @@ package io.github.lamtran.moviebooking;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 
+import android.app.Activity;
 import android.app.Application;
 
-import io.github.lamtran.moviebooking.di.AppComponent;
-import io.github.lamtran.moviebooking.di.AppModule;
+import javax.inject.Inject;
+
+import dagger.android.DispatchingAndroidInjector;
+import dagger.android.HasDispatchingActivityInjector;
 import io.github.lamtran.moviebooking.di.DaggerAppComponent;
 
 /**
  * Created by lam on 2/3/17.
  */
 
-public class App extends Application {
-
-  private AppComponent mAppComponent;
+public class App extends Application implements HasDispatchingActivityInjector {
+  @Inject DispatchingAndroidInjector<Activity> dispatchingActivityInjector;
 
   @Override
   public void onCreate() {
+    DaggerAppComponent.builder().app(this).build().inject(this);
     super.onCreate();
-
-    mAppComponent = DaggerAppComponent.builder()
-        .appModule(new AppModule(this))
-        .build();
 
     Fresco.initialize(this);
   }
 
-  public AppComponent getAppComponent() {
-    return mAppComponent;
+  @Override public DispatchingAndroidInjector<Activity> activityInjector() {
+    return dispatchingActivityInjector;
   }
 }
