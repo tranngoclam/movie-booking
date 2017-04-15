@@ -24,10 +24,9 @@
 
 package io.github.lamtran.moviebooking.util;
 
+import io.github.lamtran.moviebooking.data.model.Seat;
 import java.util.ArrayList;
 import java.util.List;
-
-import io.github.lamtran.moviebooking.model.Seat;
 
 /**
  * Created by lam on 2/3/17.

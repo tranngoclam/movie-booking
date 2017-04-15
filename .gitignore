@@ -1,17 +1,16 @@
+# Gradle files
+.gradle/
+build/
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Intellij
 *.iml
-.gradle
-/local.properties
-/.idea/copyright
-/.idea/workspace.xml
-/.idea/libraries
-/.idea/compiler.xml
-/.idea/encodings.xml
-/.idea/gradle.xml
-/.idea/misc.xml
-/.idea/modules.xml
-/.idea/runConfigurations.xml
-/.idea/vcs.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
+.idea/workspace.xml
+.idea/gradle.xml
+.idea/libraries/
+.idea/misc.xml
+.idea/modules.xml
+.idea/runConfigurations.xml
+.idea/vcs.xml

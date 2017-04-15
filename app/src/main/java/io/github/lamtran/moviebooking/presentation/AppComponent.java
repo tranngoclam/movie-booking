@@ -22,45 +22,30 @@
  * SOFTWARE.
  */
 
-package io.github.lamtran.moviebooking.util;
+package io.github.lamtran.moviebooking.presentation;
 
 import android.app.Activity;
-import android.support.annotation.StringRes;
-import android.widget.Toast;
-import io.github.lamtran.moviebooking.internal.injection.scope.ForActivity;
-import io.github.lamtran.moviebooking.presentation.view.base.activity.BaseActivity;
-import javax.inject.Inject;
+import dagger.Binds;
+import dagger.Component;
+import dagger.android.ActivityKey;
+import dagger.android.AndroidInjector;
+import dagger.android.support.AndroidSupportInjectionModule;
+import dagger.multibindings.IntoMap;
+import io.github.lamtran.moviebooking.internal.injection.scope.ForApp;
+import io.github.lamtran.moviebooking.presentation.view.main.MainActivity;
+import io.github.lamtran.moviebooking.presentation.view.main.MainComponent;
 
 /**
- * Created by lam on 2/4/17.
+ * Created by lam on 2/3/17.
  */
-
-@ForActivity public class Toaster {
-
-  private final Activity mActivity;
-
-  @Inject public Toaster(BaseActivity activity) {
-    mActivity = activity;
+@ForApp @Component(modules = { AndroidSupportInjectionModule.class, AppComponent.Module.class })
+public interface AppComponent extends AndroidInjector<App> {
+  @dagger.Component.Builder abstract class Builder extends AndroidInjector.Builder<App> {
   }
 
-  public void showLongToast(String text) {
-    Toast.makeText(mActivity, text, Toast.LENGTH_LONG).show();
-  }
+  @dagger.Module(subcomponents = MainComponent.class) abstract class Module {
 
-  public void showLongToast(@StringRes int resId) {
-    Toast.makeText(mActivity, resId, Toast.LENGTH_LONG).show();
-  }
-
-  public void showShortToast(@StringRes int resId) {
-    Toast.makeText(mActivity, resId, Toast.LENGTH_SHORT).show();
-  }
-
-  public void showShortToast(String text) {
-    Toast.makeText(mActivity, text, Toast.LENGTH_SHORT).show();
-  }
-
-  public void showShortToast(@StringRes int resId, Object... formatArgs) {
-    Toast.makeText(mActivity, mActivity.getString(resId, formatArgs), Toast.LENGTH_SHORT).show();
-    ;
+    @Binds @IntoMap @ActivityKey(MainActivity.class)
+    abstract AndroidInjector.Factory<? extends Activity> main(MainComponent.Builder builder);
   }
 }

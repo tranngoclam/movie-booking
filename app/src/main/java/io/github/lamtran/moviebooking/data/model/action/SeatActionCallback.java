@@ -22,45 +22,15 @@
  * SOFTWARE.
  */
 
-package io.github.lamtran.moviebooking.util;
+package io.github.lamtran.moviebooking.data.model.action;
 
-import android.app.Activity;
-import android.support.annotation.StringRes;
-import android.widget.Toast;
-import io.github.lamtran.moviebooking.internal.injection.scope.ForActivity;
-import io.github.lamtran.moviebooking.presentation.view.base.activity.BaseActivity;
-import javax.inject.Inject;
+import io.github.lamtran.moviebooking.data.model.Seat;
 
 /**
- * Created by lam on 2/4/17.
+ * Created by lam on 2/3/17.
  */
 
-@ForActivity public class Toaster {
+public interface SeatActionCallback {
 
-  private final Activity mActivity;
-
-  @Inject public Toaster(BaseActivity activity) {
-    mActivity = activity;
-  }
-
-  public void showLongToast(String text) {
-    Toast.makeText(mActivity, text, Toast.LENGTH_LONG).show();
-  }
-
-  public void showLongToast(@StringRes int resId) {
-    Toast.makeText(mActivity, resId, Toast.LENGTH_LONG).show();
-  }
-
-  public void showShortToast(@StringRes int resId) {
-    Toast.makeText(mActivity, resId, Toast.LENGTH_SHORT).show();
-  }
-
-  public void showShortToast(String text) {
-    Toast.makeText(mActivity, text, Toast.LENGTH_SHORT).show();
-  }
-
-  public void showShortToast(@StringRes int resId, Object... formatArgs) {
-    Toast.makeText(mActivity, mActivity.getString(resId, formatArgs), Toast.LENGTH_SHORT).show();
-    ;
-  }
+  void onClick(Seat seat);
 }
