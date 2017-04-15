@@ -26,7 +26,6 @@ package io.github.lamtran.moviebooking.util;
 
 import android.support.v7.widget.RecyclerView;
 import android.util.SparseBooleanArray;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,7 +33,8 @@ import java.util.List;
  * Created by lam on 2/4/17.
  */
 
-public abstract class SelectableAdapter<VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH> implements Selectable {
+public abstract class SelectableAdapter<VH extends RecyclerView.ViewHolder>
+    extends RecyclerView.Adapter<VH> implements Selectable {
 
   private final SparseBooleanArray mSelectedItems;
 
@@ -46,8 +46,7 @@ public abstract class SelectableAdapter<VH extends RecyclerView.ViewHolder> exte
     mSelectedItems = new SparseBooleanArray();
   }
 
-  @Override
-  public void clearSelection() {
+  @Override public void clearSelection() {
     List<Integer> items = getSelectedItems();
     mSelectedItems.clear();
     for (Integer item : items) {
@@ -55,13 +54,11 @@ public abstract class SelectableAdapter<VH extends RecyclerView.ViewHolder> exte
     }
   }
 
-  @Override
-  public int getSelectedItemCount() {
+  @Override public int getSelectedItemCount() {
     return mSelectedItems.size();
   }
 
-  @Override
-  public List<Integer> getSelectedItems() {
+  @Override public List<Integer> getSelectedItems() {
     int size = getSelectedItemCount();
     List<Integer> items = new ArrayList<>(size);
     for (int i = 0; i < size; i++) {
@@ -70,18 +67,15 @@ public abstract class SelectableAdapter<VH extends RecyclerView.ViewHolder> exte
     return items;
   }
 
-  @Override
-  public boolean isMaxSelectionReached() {
+  @Override public boolean isMaxSelectionReached() {
     return getSelectedItemCount() == mMaxSelection;
   }
 
-  @Override
-  public boolean isSelected(int position) {
+  @Override public boolean isSelected(int position) {
     return getSelectedItems().contains(position);
   }
 
-  @Override
-  public boolean toggleSelection(int position) {
+  @Override public boolean toggleSelection(int position) {
     if (mSelectedItems.get(position, false)) {
       mSelectedItems.delete(position);
       return true;
@@ -99,7 +93,8 @@ public abstract class SelectableAdapter<VH extends RecyclerView.ViewHolder> exte
     mMaxSelection = maxSelection;
   }
 
-  public void setOnMaxSelectionReachedListener(OnMaxSelectionReachedListener onMaxSelectionReachedListener) {
+  public void setOnMaxSelectionReachedListener(
+      OnMaxSelectionReachedListener onMaxSelectionReachedListener) {
     mOnMaxSelectionReachedListener = onMaxSelectionReachedListener;
   }
 }

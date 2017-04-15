@@ -22,45 +22,23 @@
  * SOFTWARE.
  */
 
-package io.github.lamtran.moviebooking.util;
+package io.github.lamtran.moviebooking.presentation.view.main;
 
-import android.app.Activity;
-import android.support.annotation.StringRes;
-import android.widget.Toast;
-import io.github.lamtran.moviebooking.internal.injection.scope.ForActivity;
+import android.databinding.DataBindingUtil;
+import android.os.Bundle;
+import io.github.lamtran.moviebooking.R;
+import io.github.lamtran.moviebooking.databinding.ActivityMainBinding;
 import io.github.lamtran.moviebooking.presentation.view.base.activity.BaseActivity;
 import javax.inject.Inject;
 
-/**
- * Created by lam on 2/4/17.
- */
+public class MainActivity extends BaseActivity {
 
-@ForActivity public class Toaster {
+  @Inject MainViewModel mViewModel;
+  private ActivityMainBinding mBinding;
 
-  private final Activity mActivity;
-
-  @Inject public Toaster(BaseActivity activity) {
-    mActivity = activity;
-  }
-
-  public void showLongToast(String text) {
-    Toast.makeText(mActivity, text, Toast.LENGTH_LONG).show();
-  }
-
-  public void showLongToast(@StringRes int resId) {
-    Toast.makeText(mActivity, resId, Toast.LENGTH_LONG).show();
-  }
-
-  public void showShortToast(@StringRes int resId) {
-    Toast.makeText(mActivity, resId, Toast.LENGTH_SHORT).show();
-  }
-
-  public void showShortToast(String text) {
-    Toast.makeText(mActivity, text, Toast.LENGTH_SHORT).show();
-  }
-
-  public void showShortToast(@StringRes int resId, Object... formatArgs) {
-    Toast.makeText(mActivity, mActivity.getString(resId, formatArgs), Toast.LENGTH_SHORT).show();
-    ;
+  @Override protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+    mBinding.setViewModel(mViewModel);
   }
 }

@@ -23,26 +23,33 @@
   -->
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
 
   <data>
 
     <variable
-      name="viewModel"
-      type="io.github.lamtran.moviebooking.ui.MainViewModel" />
+        name="viewModel"
+        type="io.github.lamtran.moviebooking.presentation.view.main.MainViewModel"
+        />
+
+    <import type="io.github.lamtran.moviebooking.util.AppUtils"/>
   </data>
 
   <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <android.support.v7.widget.RecyclerView
-      android:id="@+id/list"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:clipToPadding="false"
-      android:padding="@dimen/paddingOffset"
-      app:adapter="@{viewModel.adapter}"
-      app:seats="@{viewModel.seats}" />
+      >
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:padding="@dimen/paddingOffset"
+        app:adapter="@{viewModel.adapter}"
+        app:layoutManager="android.support.v7.widget.GridLayoutManager"
+        app:span="@{AppUtils.SIZE}"
+        />
   </LinearLayout>
 </layout>

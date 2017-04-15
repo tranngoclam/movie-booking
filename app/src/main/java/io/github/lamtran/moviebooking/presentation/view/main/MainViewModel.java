@@ -22,45 +22,31 @@
  * SOFTWARE.
  */
 
-package io.github.lamtran.moviebooking.util;
+package io.github.lamtran.moviebooking.presentation.view.main;
 
-import android.app.Activity;
-import android.support.annotation.StringRes;
-import android.widget.Toast;
+import android.databinding.BaseObservable;
+import io.github.lamtran.moviebooking.R;
 import io.github.lamtran.moviebooking.internal.injection.scope.ForActivity;
-import io.github.lamtran.moviebooking.presentation.view.base.activity.BaseActivity;
+import io.github.lamtran.moviebooking.util.AppUtils;
+import io.github.lamtran.moviebooking.util.Toaster;
 import javax.inject.Inject;
 
 /**
- * Created by lam on 2/4/17.
+ * Created by lam on 2/3/17.
  */
 
-@ForActivity public class Toaster {
+@ForActivity public class MainViewModel extends BaseObservable {
 
-  private final Activity mActivity;
+  public final SeatAdapter adapter;
 
-  @Inject public Toaster(BaseActivity activity) {
-    mActivity = activity;
-  }
+  private final Toaster mToaster;
 
-  public void showLongToast(String text) {
-    Toast.makeText(mActivity, text, Toast.LENGTH_LONG).show();
-  }
-
-  public void showLongToast(@StringRes int resId) {
-    Toast.makeText(mActivity, resId, Toast.LENGTH_LONG).show();
-  }
-
-  public void showShortToast(@StringRes int resId) {
-    Toast.makeText(mActivity, resId, Toast.LENGTH_SHORT).show();
-  }
-
-  public void showShortToast(String text) {
-    Toast.makeText(mActivity, text, Toast.LENGTH_SHORT).show();
-  }
-
-  public void showShortToast(@StringRes int resId, Object... formatArgs) {
-    Toast.makeText(mActivity, mActivity.getString(resId, formatArgs), Toast.LENGTH_SHORT).show();
-    ;
+  @Inject public MainViewModel(Toaster toaster, SeatAdapter adapter) {
+    mToaster = toaster;
+    adapter.setOnMaxSelectionReachedListener(
+        () -> mToaster.showShortToast(R.string.max_selection_reached, AppUtils.MAX_SELECTION));
+    adapter.setMaxSelection(AppUtils.MAX_SELECTION);
+    this.adapter = adapter;
+    this.adapter.setSeats(AppUtils.fakeSeats());
   }
 }

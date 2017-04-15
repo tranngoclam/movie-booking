@@ -22,45 +22,27 @@
  * SOFTWARE.
  */
 
-package io.github.lamtran.moviebooking.util;
+package io.github.lamtran.moviebooking.presentation.view.seats;
 
-import android.app.Activity;
-import android.support.annotation.StringRes;
-import android.widget.Toast;
-import io.github.lamtran.moviebooking.internal.injection.scope.ForActivity;
-import io.github.lamtran.moviebooking.presentation.view.base.activity.BaseActivity;
+import android.databinding.ViewDataBinding;
 import javax.inject.Inject;
 
 /**
- * Created by lam on 2/4/17.
+ * Created by lam on 2/3/17.
  */
 
-@ForActivity public class Toaster {
+public class EmptySeatViewHolder extends SeatViewHolder {
 
-  private final Activity mActivity;
-
-  @Inject public Toaster(BaseActivity activity) {
-    mActivity = activity;
+  public EmptySeatViewHolder(ViewDataBinding binding) {
+    super(binding);
   }
 
-  public void showLongToast(String text) {
-    Toast.makeText(mActivity, text, Toast.LENGTH_LONG).show();
-  }
+  public static final class Factory implements SeatViewHolderFactory {
+    @Inject public Factory() {
+    }
 
-  public void showLongToast(@StringRes int resId) {
-    Toast.makeText(mActivity, resId, Toast.LENGTH_LONG).show();
-  }
-
-  public void showShortToast(@StringRes int resId) {
-    Toast.makeText(mActivity, resId, Toast.LENGTH_SHORT).show();
-  }
-
-  public void showShortToast(String text) {
-    Toast.makeText(mActivity, text, Toast.LENGTH_SHORT).show();
-  }
-
-  public void showShortToast(@StringRes int resId, Object... formatArgs) {
-    Toast.makeText(mActivity, mActivity.getString(resId, formatArgs), Toast.LENGTH_SHORT).show();
-    ;
+    @Override public EmptySeatViewHolder createViewHolder(ViewDataBinding binding) {
+      return new EmptySeatViewHolder(binding);
+    }
   }
 }

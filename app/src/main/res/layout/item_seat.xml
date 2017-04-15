@@ -23,23 +23,28 @@
   -->
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
 
   <data>
 
     <variable
-      name="data"
-      type="io.github.lamtran.moviebooking.model.Seat" />
+        name="data"
+        type="io.github.lamtran.moviebooking.data.model.Seat"
+        />
 
     <variable
-      name="action"
-      type="io.github.lamtran.moviebooking.model.action.SeatActionCallback" />
+        name="action"
+        type="io.github.lamtran.moviebooking.data.model.action.SeatActionCallback"
+        />
   </data>
 
-  <com.facebook.drawee.view.SimpleDraweeView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:onClick="@{() -> action.onClick(data)}"
-    app:state="@{data.state}"
-    app:viewAspectRatio="1.0" />
+  <FrameLayout
+      android:id="@+id/frame"
+      android:layout_width="match_parent"
+      android:layout_height="?attr/listPreferredItemHeightLarge"
+      android:layout_margin="@dimen/paddingOffset"
+      android:onClick="@{() -> action.onClick(data)}"
+      app:state="@{data.state}"
+      />
 </layout>
