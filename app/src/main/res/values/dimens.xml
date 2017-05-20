@@ -21,11 +21,21 @@
   ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   ~ SOFTWARE.
   -->
-
 <resources>
-  <!-- Default screen margins, per the Android Design guidelines. -->
-  <dimen name="activity_horizontal_margin">16dp</dimen>
-  <dimen name="activity_vertical_margin">16dp</dimen>
+  <dimen name="match_constraint">0dp</dimen>
 
-  <dimen name="paddingOffset">4dp</dimen>
+  <dimen name="seat_frame_height">76dp</dimen>
+  <dimen name="seat_number_text">20sp</dimen>
+
+  <dimen name="seat_margin">2dp</dimen>
+  <dimen name="seat_recycler_padding">6dp</dimen>
+
+  <dimen name="button_height">48dp</dimen>
+
+  <dimen name="top_button_text">14sp</dimen>
+  <dimen name="bottom_button_text">14sp</dimen>
+
+  <dimen name="top_button_padding_left">18dp</dimen>
+  <dimen name="top_button_padding_right">10dp</dimen>
+
 </resources>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ MIT License
+  ~
+  ~ Copyright (c) 2017 Lam Tran (tranngoclam288@gmail.com)
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ of this software and associated documentation files (the "Software"), to deal
+  ~ in the Software without restriction, including without limitation the rights
+  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all
+  ~ copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  ~ SOFTWARE.
+  -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context='.presentation.view.theatre.TheatreActivity'
+    >
+
+  <data>
+    <variable
+        name="controller"
+        type="io.github.lamtran.moviebooking.presentation.view.theatre.TheatreActivity.Controller"
+        />
+  </data>
+
+  <android.support.constraint.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      >
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/seat_click"
+        android:onClick="@{controller::onClick}"
+        android:text="@string/click_seat"
+        app:layout_constraintEnd_toStartOf="@+id/seat_long_click"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/Theatre_Top_Button"
+        />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/seat_long_click"
+        android:onClick="@{controller::onClick}"
+        android:text="@string/long_click_seat"
+        app:layout_constraintEnd_toStartOf="@+id/set_tickets"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/seat_click"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/Theatre_Top_Button"
+        />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/set_tickets"
+        android:onClick="@{controller::onClick}"
+        android:text="@string/set_tickets"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/seat_long_click"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/Theatre_Top_Button"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/seat_recycler"
+        app:adapter="@{controller.adapter}"
+        app:layout_constraintBottom_toTopOf="@+id/change_unchosen_to_chosen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/set_tickets"
+        tools:listitem="@layout/holder_unchosen_seat"
+        style="@style/Theatre_Seat_Recycler"
+        />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/change_unchosen_to_chosen"
+        android:onClick="@{controller::onClick}"
+        android:text="@{@string/chosen_total(controller.chosen)}"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/change_chosen_to_unchosen"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Chosen 0"
+        style="@style/Theatre_Bottom_Button"
+        />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/change_chosen_to_unchosen"
+        android:onClick="@{controller::onClick}"
+        android:text="@{@string/unchosen_total(controller.unchosen)}"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/change_chosen_to_reserved"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/change_unchosen_to_chosen"
+        tools:text="Unchosen 18"
+        style="@style/Theatre_Bottom_Button"
+        />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/change_chosen_to_reserved"
+        android:onClick="@{controller::onClick}"
+        android:text="@{@string/reserved_total(controller.reserved)}"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/change_chosen_to_empty"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/change_chosen_to_unchosen"
+        tools:text="Reserved 0"
+        style="@style/Theatre_Bottom_Button"
+        />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/change_chosen_to_empty"
+        android:onClick="@{controller::onClick}"
+        android:text="@{@string/empty_total(controller.empty)}"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/change_chosen_to_reserved"
+        tools:text="Empty 0"
+        style="@style/Theatre_Bottom_Button"
+        />
+  </android.support.constraint.ConstraintLayout>
+</layout>
