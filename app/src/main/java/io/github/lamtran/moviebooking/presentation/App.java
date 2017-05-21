@@ -21,21 +21,25 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
 package io.github.lamtran.moviebooking.presentation;
 
 import dagger.android.AndroidInjector;
+import dagger.android.ContributesAndroidInjector;
+import dagger.android.support.AndroidSupportInjectionModule;
 import dagger.android.support.DaggerApplication;
 import io.github.lamtran.moviebooking.BuildConfig;
+import io.github.lamtran.moviebooking.internal.injection.scope.ForActivity;
+import io.github.lamtran.moviebooking.internal.injection.scope.ForApp;
+import io.github.lamtran.moviebooking.presentation.view.theatre.TheatreActivity;
 import timber.log.Timber;
 
-import static io.github.lamtran.moviebooking.presentation.DaggerAppComponent.builder;
-
 /**
- * Created by lam on 2/3/17.
+ * Author: JONATHAN MERRITT
+ * Year: 2017
+ * Contact: 11R00TT00RR11@GMAIL.COM
  */
-
 public class App extends DaggerApplication {
+  public static final String GITHUB = "https://github.com/tranngoclam/movie-booking";
 
   @Override public void onCreate() {
     super.onCreate();
@@ -43,6 +47,17 @@ public class App extends DaggerApplication {
   }
 
   @Override protected AndroidInjector<? extends DaggerApplication> applicationInjector() {
-    return builder().create(this);
+    return DaggerApp_Component.builder().create(this);
+  }
+
+  @ForApp @dagger.Component(modules = { AndroidSupportInjectionModule.class, Component.Module.class })
+  public interface Component extends AndroidInjector<App> {
+    @dagger.Component.Builder abstract class Builder extends AndroidInjector.Builder<App> {
+    }
+
+    @dagger.Module abstract class Module {
+      @ForActivity @ContributesAndroidInjector(modules = TheatreActivity.Module.class)
+      abstract TheatreActivity theatreActivity();
+    }
   }
 }

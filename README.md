@@ -25,12 +25,12 @@ To manage these states, we use [State Design Pattern](https://github.com/iluwata
 For any state changes, we update the UI of the seat correspondingly by using `@BindingAdapter` and `@Bindable` annotations defined in [Android Data Binding](https://developer.android.com/topic/libraries/data-binding/index.html). Example:
 * In a layout of a seat, we bind a state value to UI by: `app:state="@{data.state}"`.
 * A state defined in Java code is: `@Bindable State mState;` and must have getter `public State getState() { return mState; }`.
-* If we want to change the state and update to the UI, we set `mState = new NewState();` then `notifyPropertyChanged(BR.state);`, noted that `BR.state` is generated after building our application.
+* If we want to seatChange the state and update to the UI, we set `mState = new NewState();` then `notifyPropertyChanged(BR.state);`, noted that `BR.state` is generated after building our application.
 
 ### Multibinding and Autofactory
 For the Dependency Injection, we use [Dagger2](https://github.com/google/dagger) to setup. Dagger2 also supports Multibinding, it means that we can inject any `ViewHolder` into our adapter to render the corresponding layout of an item in a list.
 
-By using [Autofactory](https://github.com/google/auto/tree/master/factory), we construct some ViewHolders and provide these factory in a module. These factories must go with a key defined by `@IntKey`, which is an item view type. Example:
+By using [Autofactory](https://github.com/google/auto/tree/master/factory), we construct some ViewHolders and provide these factory in a module. These factory must go with a key defined by `@IntKey`, which is an item view type. Example:
 ``` java
 @Provides
 @IntoMap
