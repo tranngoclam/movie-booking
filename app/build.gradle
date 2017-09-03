@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
-  compileSdkVersion 'android-O'
-  buildToolsVersion "26.0.0-rc2"
+  compileSdkVersion 26
+  buildToolsVersion "26.0.1"
   defaultConfig {
     applicationId "io.github.lamtran.moviebooking"
     minSdkVersion 15
@@ -29,8 +29,8 @@ android {
   }
 }
 
-def android = "26.0.0-beta1"
-def dagger = "2.11-rc2"
+def android = "26.0.2"
+def dagger = "2.11"
 
 dependencies {
   implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -54,9 +54,6 @@ dependencies {
 
   annotationProcessor "com.ryanharter.auto.value:auto-value-parcel:0.2.5"
 
-  androidTestCompile("com.android.support.test.espresso:espresso-core:2.2.2", {
-    exclude group: 'com.android.support', module: 'support-annotations'
-    exclude group: 'com.google.code.findbugs'
-  })
-  testCompile "junit:junit:4.12"
+  androidTestImplementation "com.android.support.test.espresso:espresso-core:3.0.0"
+  testImplementation "junit:junit:4.12"
 }
