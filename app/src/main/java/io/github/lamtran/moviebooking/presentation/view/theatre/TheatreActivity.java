@@ -42,7 +42,7 @@ import io.github.lamtran.moviebooking.data.model.theatre.seat.Seat;
 import io.github.lamtran.moviebooking.data.model.theatre.seat.UnChosenSeat;
 import io.github.lamtran.moviebooking.databinding.ActivityTheatreBinding;
 import io.github.lamtran.moviebooking.internal.injection.scope.ForActivity;
-import io.github.lamtran.moviebooking.presentation.App;
+import io.github.lamtran.moviebooking2.App;
 import io.github.lamtran.moviebooking.presentation.util.TheatreUtils;
 import io.github.lamtran.moviebooking.presentation.util.Toaster;
 import io.github.lamtran.moviebooking.presentation.view.base.screen.BaseActivity;
@@ -67,7 +67,7 @@ public class TheatreActivity extends BaseActivity<ActivityTheatreBinding, Theatr
   }
 
   @Override public void setBindings(ActivityTheatreBinding binding) {
-    binding.setController(controller);
+    binding.setController(getController());
   }
 
   @Override public boolean onCreateOptionsMenu(Menu menu) {
@@ -81,15 +81,15 @@ public class TheatreActivity extends BaseActivity<ActivityTheatreBinding, Theatr
         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(App.GITHUB)));
         break;
       case R.id.item_reset:
-        controller.reset();
+        getController().reset();
         break;
     }
     return super.onOptionsItemSelected(item);
   }
 
   @Override public boolean onKeyDown(int code, KeyEvent event) {
-    if (code == KEYCODE_BACK && controller.hasChosen()) {
-      controller.changeSeats(UnChosenSeat.class);
+    if (code == KEYCODE_BACK && getController().hasChosen()) {
+      getController().changeSeats(UnChosenSeat.class);
       return true;
     }
     return super.onKeyDown(code, event);

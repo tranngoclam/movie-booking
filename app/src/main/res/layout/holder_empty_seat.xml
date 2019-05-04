@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ MIT License
   ~
   ~ Copyright (c) 2017 Lam Tran (tranngoclam288@gmail.com)
@@ -23,18 +22,18 @@
   ~ SOFTWARE.
   -->
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
-  <data>
-    <variable
-        name="controller"
-        type="io.github.lamtran.moviebooking.presentation.view.theatre.seat.EmptySeatHolder.Controller"
-        />
-  </data>
-  <FrameLayout
-      android:background="@color/empty_seat"
-      android:onClick="@{controller::onClick}"
-      app:longClick="@{controller::onLongClick}"
-      style="@style/Theatre_Seat"
-      />
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="controller"
+            type="io.github.lamtran.moviebooking.presentation.view.theatre.seat.EmptySeatHolder.Controller" />
+    </data>
+
+    <View
+        style="@style/Theatre_Seat"
+        android:background="@color/empty_seat"
+        android:onClick="@{controller::onClick}"
+        app:longClick="@{controller::onLongClick}" />
 </layout>

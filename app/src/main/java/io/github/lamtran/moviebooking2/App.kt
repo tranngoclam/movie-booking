@@ -21,17 +21,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package io.github.lamtran.moviebooking.internal.injection.scope;
+package io.github.lamtran.moviebooking2
 
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import javax.inject.Scope;
+import android.app.Application
 
-/**
- * Author: JONATHAN MERRITT
- * Year: 2017
- * Contact: 11R00TT00RR11@GMAIL.COM
- */
-@Scope @Retention(RetentionPolicy.RUNTIME) public @interface ForActivity {
+class App : Application() {
 
+    companion object {
+
+        const val GITHUB = "https://github.com/tranngoclam/movie-booking"
+    }
 }

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ MIT License
   ~
   ~ Copyright (c) 2017 Lam Tran (tranngoclam288@gmail.com)
@@ -23,15 +22,16 @@
   ~ SOFTWARE.
   -->
 <resources>
-  <color name="colorPrimary">#0079c3</color>
-  <color name="colorPrimaryDark">#005c95</color>
-  <color name="colorAccent">#009e64</color>
 
-  <color name="unchosen_seat">#b4b4b4</color>
-  <color name="chosen_seat">@color/colorAccent</color>
-  <color name="reserved_seat">#616161</color>
-  <color name="empty_seat">#00000000</color>
+    <color name="colorPrimary">#0079c3</color>
+    <color name="colorPrimaryDark">#005c95</color>
+    <color name="colorAccent">#009e64</color>
 
-  <color name="seat_text">#2cffffff</color>
+    <color name="available_seat">#b4b4b4</color>
+    <color name="chosen_seat">@color/colorAccent</color>
+    <color name="reserved_seat">#616161</color>
+    <color name="empty_seat">#00000000</color>
+
+    <color name="seat_text">#2cffffff</color>
 
 </resources>

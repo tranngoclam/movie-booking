@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--  ~ MIT License
+<?xml version="1.0" encoding="utf-8"?><!--  ~ MIT License
   ~
   ~ Copyright (c) 2017 Lam Tran (tranngoclam288@gmail.com)
   ~
@@ -23,27 +22,25 @@
   -->
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    >
+    xmlns:tools="http://schemas.android.com/tools">
 
-  <data>
+    <data>
 
-    <variable
-        name="controller"
-        type="io.github.lamtran.moviebooking.presentation.view.theatre.seat.ReservedSeatHolder.Controller"
-        />
+        <variable
+            name="controller"
+            type="io.github.lamtran.moviebooking.presentation.view.theatre.seat.ReservedSeatHolder.Controller" />
 
-  </data>
-  <FrameLayout
-      android:background="@color/reserved_seat"
-      android:onClick="@{controller::onClick}"
-      app:longClick="@{controller::onLongClick}"
-      style="@style/Theatre_Seat"
-      >
-    <TextView
-        android:text="@{@string/seat_number(controller.number)}"
-        tools:text="4"
-        style="@style/Theatre_Seat_Number"
-        />
-  </FrameLayout>
+    </data>
+
+    <FrameLayout
+        style="@style/Theatre_Seat"
+        android:background="@color/reserved_seat"
+        android:onClick="@{controller::onClick}"
+        app:longClick="@{controller::onLongClick}">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/Theatre_Seat_Number"
+            android:text="@{@string/seat_number(controller.number)}"
+            tools:text="4" />
+    </FrameLayout>
 </layout>

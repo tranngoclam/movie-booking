@@ -22,23 +22,23 @@
   ~ SOFTWARE.
   -->
 <resources>
-  <string name="app_name">Movie Booking</string>
+    <string name="app_name">Movie Booking</string>
 
-  <string name="seat_number">%s</string>
+    <string name="seat_number">%s</string>
 
-  <string name="set_tickets">Set Tickets</string>
-  <string name="click_seat">Click Seat</string>
-  <string name="long_click_seat">Long Click Seat</string>
+    <string name="set_tickets">Set Tickets</string>
+    <string name="click_seat">Click Seat</string>
+    <string name="long_click_seat">Long Click Seat</string>
 
-  <string name="unchosen_total">Unchosen %s</string>
-  <string name="chosen_total">Chosen %s</string>
-  <string name="reserved_total">Reserved %s</string>
-  <string name="empty_total">Empty %s</string>>
+    <string name="unchosen_total">Unchosen %s</string>
+    <string name="chosen_total">Chosen %s</string>
+    <string name="reserved_total">Reserved %s</string>
+    <string name="empty_total">Empty %s</string>>
 
-  <string name="no_tickets_left">No Tickets Left</string>
-  <string name="no_chosen_seats">No Chosen Seats</string>
-  <string name="no_unchosen_seats">No Unchosen Seats</string>
+    <string name="no_tickets_left">No Tickets Left</string>
+    <string name="no_chosen_seats">No Chosen Seats</string>
+    <string name="no_unchosen_seats">No Unchosen Seats</string>
 
-  <string name="item_github">Github</string>
-  <string name="item_reset">Reset</string>
+    <string name="item_github">Github</string>
+    <string name="item_reset">Reset</string>
 </resources>

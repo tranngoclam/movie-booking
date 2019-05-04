@@ -105,7 +105,7 @@ import javax.inject.Provider;
     }
   }
   @dagger.Module public abstract class Module {
-    @Binds @IntoMap @IntKey(R.layout.holder_unchosen_seat)
+    @Binds @IntoMap @IntKey(R.layout.holder_available_seat)
     abstract IsHolderFactory unchosenSeatFactory(UnchosenSeatHolder.Factory holderFactory);
 
     @Binds @IntoMap @IntKey(R.layout.holder_chosen_seat)
