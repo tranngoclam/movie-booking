@@ -1,12 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
-  compileSdkVersion 26
-  buildToolsVersion "26.0.1"
+  compileSdkVersion 28
   defaultConfig {
     applicationId "io.github.lamtran.moviebooking"
-    minSdkVersion 15
-    targetSdkVersion 26
+    minSdkVersion 26
+    targetSdkVersion 28
     versionCode 1
     versionName "1.0"
     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -29,23 +28,22 @@ android {
   }
 }
 
-def android = "26.0.2"
-def dagger = "2.11"
+def android = "28.0.0"
+def dagger = "2.15"
 
 dependencies {
   implementation fileTree(dir: 'libs', include: ['*.jar'])
 
   implementation "com.android.support:appcompat-v7:$android"
   implementation "com.android.support:recyclerview-v7:$android"
-  implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-  implementation 'com.android.support.constraint:constraint-layout-solver:1.0.2'
+  implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 
   implementation "com.google.dagger:dagger:$dagger"
   implementation "com.google.dagger:dagger-android:$dagger"
   implementation "com.google.dagger:dagger-android-support:$dagger"
   annotationProcessor "com.google.dagger:dagger-compiler:$dagger"
   annotationProcessor "com.google.dagger:dagger-android-processor:$dagger"
-  annotationProcessor "com.google.auto.value:auto-value:1.4"
+  annotationProcessor "com.google.auto.value:auto-value:1.5.2"
 
   implementation "com.jakewharton.timber:timber:4.5.1"
   compileOnly 'com.jakewharton.auto.value:auto-value-annotations:1.4'
@@ -54,6 +52,6 @@ dependencies {
 
   annotationProcessor "com.ryanharter.auto.value:auto-value-parcel:0.2.5"
 
-  androidTestImplementation "com.android.support.test.espresso:espresso-core:3.0.0"
+  androidTestImplementation "com.android.support.test.espresso:espresso-core:3.0.2"
   testImplementation "junit:junit:4.12"
 }
